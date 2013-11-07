@@ -13,17 +13,20 @@ var addItemViewModel = (function () {
         $startTime = $('#startTime');
         $endTime = $('#endTime');
     };
-    var show = function () {
+    var clear = function () {
         $description.val('');
         $qty.val('');
         $startTime.val('');
         $endTime.val('');
     };
+    var show = function () {
+        clear();
+    };
     var saveItem = function () {
+        mobileApp.showLoading();
         var newItem = new Object();
         newItem.Description = $description.val();
         newItem.Quantity = $qty.val();
-        debugger;
         newItem.StartTime = kendo.toString(kendo.parseDate($startTime.val()), 'u')
         newItem.EndTime = kendo.toString(kendo.parseDate($endTime.val()), 'u')
         newItem.AlgorithmName = $selectDistributionType.text();
@@ -32,7 +35,8 @@ var addItemViewModel = (function () {
         
         Everlive.$.data('Item').create(newItem)
         .then(function (x) {
-            show();
+            clear();
+            mobileApp.hideLoading();
             mobileApp.navigate('#feed');
         })
     };
