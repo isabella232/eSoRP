@@ -116,13 +116,19 @@ var getParticipantsForOffer = function(offerData, readyCallback) {
   });
 };
 
+var selectWinnersForOffer = function(offer, readyCallback) {
+  getParticipantsForOffer(offer, function(error, partsData) {
+    console.log(selectWinners(partsData, offer.Quantity, 'SelectWinnersByWeightedShuffle'));
+  });
+};
+
 var selectWinners = require('./distribution-algorithms.js').selectWinners;
 
 getExpiredOffers(function(error, data) {  
   for (var i = 0; i < data.length; i++) {
     var offer = data[i];
-    getParticipantsForOffer(offer, function(error, partsData) {
-      console.log(selectWinners(partsData, offer.Quantity, 'SelectWinnersByWeightedShuffle'));
+    selectWinnersForOffer(offer, function(error, winners) {
+      console.log(winners);
     });
   }
 });
