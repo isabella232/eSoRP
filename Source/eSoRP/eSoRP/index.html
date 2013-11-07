@@ -8,10 +8,12 @@
 	<script src="kendo/js/kendo.mobile.min.js"></script>
 	<script src="scripts/lib/everlive.all.min.js"></script>
 	<script src="scripts/app/identity-provider.js"></script>
-	
+
 	<script src="scripts/app/global.js" type="text/javascript"></script>
 	<script src="scripts/app/everlive.js" type="text/javascript"></script>
 	<script src="models/usersModel.js" type="text/javascript"></script>
+	<script src="models/mainFeedModel.js" type="text/javascript"></script>
+	<script src="models/signupModel.js" type="text/javascript"></script>
 	<script src="models/addNewItemModel.js" type="text/javascript"></script>
 	<script src="scripts/app/main.js" type="text/javascript"></script>
 
@@ -30,7 +32,7 @@
 			<ul data-role="listview" data-style="inset">
 				<li>
 					<label for="loginUsername">Username</label>
-					<input type="text" id="loginUsername" required validationmessage="Username is required!" autocorrect="off" autocapitalize="off"/></li>
+					<input type="text" id="loginUsername" required validationmessage="Username is required!" autocorrect="off" autocapitalize="off" /></li>
 				<li>
 					<label for="loginPassword">Password</label>
 					<input type="password" id="loginPassword" required validationmessage="Password is required!" /></li>
@@ -57,7 +59,7 @@
 		<ul data-role="listview" data-type="group">
 			<li data-icon="add"><a href="views/addItemView.html" data-transition="up" data-role="button">Share Item</a></li>
 			<li data-icon="settings">Profile</li>
-			<li data-icon="off" data-transition="left"><a href="#welcome" data-role="button"> Log Out</a></li>
+			<li data-icon="off" data-transition="left"><a href="#welcome" data-role="button">Log Out</a></li>
 		</ul>
 	</div>
 

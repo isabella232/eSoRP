@@ -86,7 +86,9 @@
     <Content Include="kendo\styles\kendo.mobile.all.min.css">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="models\signupModel.js" />
     <Content Include="models\addNewItemModel.js" />
+    <Content Include="models\mainFeedModel.js" />
     <Content Include="models\usersModel.js" />
     <Content Include="scripts\app\everlive.js" />
     <Content Include="scripts\app\global.js" />
@@ -97,6 +99,9 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="scripts\lib\everlive.all.min.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="styles\fonts.css">
       <SubType>Content</SubType>
     </Content>
     <Content Include="styles\images\app-bg.jpg">
@@ -112,6 +117,12 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="styles\main.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="styles\PermianSlabSerifTypeface-webfont.woff">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="styles\spinnaker.woff">
       <SubType>Content</SubType>
     </Content>
     <Content Include="views\inviteUsersView.html" />

@@ -27,3 +27,25 @@ var usersModel = (function () {
 		currentUser: currentUser
 	};
 }());
+
+// activities view model
+var mainFeedViewModel = (function () {
+	var activitySelected = function (e) {
+		mobileApp.navigate('views/itemView.html?uid=' + e.data.uid);
+	};
+	var navigateHome = function () {
+		mobileApp.navigate('#welcome');
+	};
+	var logout = function () {
+		AppHelper.logout()
+		.then(navigateHome, function (err) {
+			showError(err.message);
+			navigateHome();
+		});
+	};
+	return {
+		activities: mainFeedModel.activities,
+		activitySelected: activitySelected,
+		logout: logout
+	};
+}());
