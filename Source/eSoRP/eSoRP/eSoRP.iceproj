@@ -126,6 +126,7 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="views\inviteUsersView.html" />
+    <Content Include="views\profileView.html" />
     <Content Include="views\leaderBoardView.html" />
     <Content Include="views\mainFeedView.html">
       <SubType>Content</SubType>
