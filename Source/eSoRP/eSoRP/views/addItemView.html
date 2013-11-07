@@ -1,27 +1,52 @@
 <div data-role="view" id="add-item" data-title="Share" data-layout="app-layout" data-transition="overlay:up" class="share-view"
-    data-init="app.viewModels.addItem.init" data-show="app.viewModels.addItem.show" data-model="app.viewModels.addItem">
-    <div id="enterStatus" class="share-form-wrp">
-        <!--<div class="user-info">
+	data-init="app.viewModels.addItem.init" data-show="app.viewModels.addItem.show" data-model="app.viewModels.addItem">
+	<div id="enterStatus" class="share-form-wrp">
+		<!--<div class="user-info">
             <img data-bind="attr:{src: me.get('data').PictureUrl}" alt="styles/images/avatar.png" />
             <h2 data-bind="text: me.get('data').DisplayName">Me</h2>
         </div>-->
-        <div class="user-share">
-            <textarea id="description" placeholder="What you want to share?" required validationMessage="required"></textarea>
-            <div id="newCommentValidation" class="validation">required</div>
-			<br />
-			<label for="qty">Quantity</label><input id="qty" type="number" />
-			<br />
-			<label for="startTime">Start Time</label><input id="startTime" type="datetime" />
-			<br />
-			<label for="endTime">End Time</label><input id="endTime" type="datetime" />
-			<br />
-			<label for="algorithm">End Time</label>
+
+		<ul data-role="listview" data-style="inset">
+			<li>
+				<textarea id="description" placeholder="What you have to share today?" required validationmessage="required"></textarea>
+				<div id="newCommentValidation" class="validation">required</div>
+			</li>
+
+			<li>
+				<label for="qty">Quantity<input id="qty" type="number" /></label>
+			</li>
+
+			<li>
+				<label>
+					Distribution Type
 			<select>
 				<option value="shuffle">Shuffle</option>
 				<option value="rating">Rating</option>
 				<option value="rating+shuffle">Rating+Shuffle</option>
 				<option value="fifo">First-in-first-out</option>
 			</select>
-        </div>
-    </div>
-</div> <!--Name, Quantity, StartTime, EndTime, Algorithm-->
+
+				</label>
+			</li>
+
+			<li>
+				<label>
+					Start Time
+			<input id="Datetime-local1" type="datetime-local" value="" />
+				</label>
+			</li>
+			<li>
+				<label>
+					End Time
+			<input id="endTime" type="datetime-local" value="" />
+				</label>
+			</li>
+
+			<li>
+				<button id="share">Share</button>
+				<button id="cancel">Not now</button>
+			</li>
+		</ul>
+	</div>
+</div>
+<!--Name, Quantity, StartTime, EndTime, Algorithm-->

@@ -60,9 +60,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="index.html" />
-    <Content Include="css\index.css" />
-    <Content Include="img\logo.png" />
-    <Content Include="img\cordova.png" />
     <Content Include="cordova.ios.js">
       <Platform>iOS</Platform>
       <TargetName>cordova.js</TargetName>
@@ -140,8 +137,6 @@
     <Folder Include="App_Resources\Android\drawable-mdpi\" />
     <Folder Include="App_Resources\Android\drawable-nodpi\" />
     <Folder Include="App_Resources\iOS\" />
-    <Folder Include="css\" />
-    <Folder Include="img\" />
     <Folder Include="kendo\" />
     <Folder Include="kendo\js\" />
     <Folder Include="kendo\styles\" />
