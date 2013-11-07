@@ -37,7 +37,7 @@ var app = (function () {
     
     
 
-    var mobileApp = new kendo.mobile.Application(document.body, { transition: 'slide', layout: 'mobile-tabstrip' });
+    var mobileApp = new kendo.mobile.Application(document.body, { skin:"flat" });
 
 
 
