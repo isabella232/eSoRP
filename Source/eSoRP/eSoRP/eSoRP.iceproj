@@ -114,13 +114,15 @@
     <Content Include="styles\main.css">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="views\activitiesView.html">
+    <Content Include="views\inviteUsersView.html" />
+    <Content Include="views\leaderBoardView.html" />
+    <Content Include="views\mainFeedView.html">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="views\activityView.html">
+    <Content Include="views\itemView.html">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="views\addActivityView.html">
+    <Content Include="views\addItemView.html">
       <SubType>Content</SubType>
     </Content>
     <Content Include="views\signupView.html">

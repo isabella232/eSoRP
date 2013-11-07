@@ -36,7 +36,7 @@ var app = (function () {
 
     var applicationSettings = {
         emptyGuid: '00000000-0000-0000-0000-000000000000',
-        apiKey: 'YjdWxWf3pNLR82t7',
+        apiKey: 'cCq6jSNpJClBy6vU',
         scheme: 'http'
     };
 
@@ -129,7 +129,7 @@ var app = (function () {
                 return usersModel.load();
             })
             .then(function () {
-                mobileApp.navigate('views/activitiesView.html');
+                mobileApp.navigate('views/mainFeedView.html');
             })
             .then(null,
                   function (err) {
@@ -146,7 +146,7 @@ var app = (function () {
                 })
                 .then(function () {
                     mobileApp.hideLoading();
-                    mobileApp.navigate('views/activitiesView.html');
+                    mobileApp.navigate('views/mainFeedView.html');
                 })
                 .then(null, function (err) {
                     mobileApp.hideLoading();
@@ -278,7 +278,7 @@ var app = (function () {
     // activities view model
     var activitiesViewModel = (function () {
         var activitySelected = function (e) {
-            mobileApp.navigate('views/activityView.html?uid=' + e.data.uid);
+            mobileApp.navigate('views/itemView.html?uid=' + e.data.uid);
         };
         var navigateHome = function () {
             mobileApp.navigate('#welcome');
@@ -307,8 +307,8 @@ var app = (function () {
         };
     }());
 
-    // add activity view model
-    var addActivityViewModel = (function () {
+    // add item view model
+    var addItemViewModel = (function () {
         var $newStatus;
         var validator;
         var init = function () {
@@ -345,7 +345,7 @@ var app = (function () {
             signup: singupViewModel,
             activities: activitiesViewModel,
             activity: activityViewModel,
-            addActivity: addActivityViewModel
+            addItem: addItemViewModel
         }
     };
 }());
