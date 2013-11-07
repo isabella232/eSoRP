@@ -19,7 +19,7 @@
 			<li>
 				<label>
 					Distribution Type
-			<select>
+			<select id="selectDistributionType">
 				<option value="shuffle">Shuffle</option>
 				<option value="rating">Rating</option>
 				<option value="rating+shuffle">Rating+Shuffle</option>
@@ -32,7 +32,7 @@
 			<li>
 				<label>
 					Start Time
-			<input id="Datetime-local1" type="datetime-local" value="" />
+			<input id="startTime" type="datetime-local" value="" />
 				</label>
 			</li>
 			<li>
@@ -41,9 +41,18 @@
 			<input id="endTime" type="datetime-local" value="" />
 				</label>
 			</li>
+            <li>
+				<label>
+					Type
+			<select id="selectType">
+				<option value="personal">Personal</option>
+				<option value="enterprise">Enterprise</option>
+			</select>
 
+				</label>
+			</li>
 			<li>
-				<button id="share" data-role="button">Share</button>
+				<button id="share" data-role="button" data-bind="click: saveItem">Share</button>
 				<button id="cancel" data-role="backbutton">Not now</button>
 			</li>
 		</ul>

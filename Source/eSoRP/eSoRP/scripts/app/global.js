@@ -1,4 +1,6 @@
 ﻿
+var mobileApp = new kendo.mobile.Application(document.body, { skin: "flat" });
+
 // global error handling
 var showAlert = function (message, title, callback) {
 	navigator.notification.alert(message, callback || function () {
