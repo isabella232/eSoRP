@@ -18,11 +18,11 @@ function printParticipantsArray(participants) {
 }
 
 function getParticipantId(participant) {
-    return participant.id;
+    return participant.userId;
 }
 
 function getParticipantSignDate(participant) {
-    return participant.sign_date;
+    return participant.signUpDate;
 }
 
 function getParticipantPoints(participant) {
@@ -140,3 +140,5 @@ function selectWinners(participants, number, selectionMethodName) {
     }
     return undefined;
 }
+
+exports.selectWinners = selectWinners;

@@ -86,21 +86,27 @@ var getUserPoints = function(userId, readyCallback) {
   });
 };
 
+var loadPartData = function(part, readyCallback) {
+      getUserPoints(part.UserId, function(error, userPoints) {
+      var result = {
+          'points': userPoints,
+          'userId': part.UserId,
+          'signUpDate': part.CreatedAt
+        };
+        readyCallback(error, result);
+      });
+}
+
 var getParticipantsForOffer = function(offerData, readyCallback) {
   var mutex = 0;
   var result = [];
   getParticipants(offerData.Id, function(error, parts) {
     for (var j = 0; j < parts.length; j++) {
-      var part = parts[j];
       
       mutex = mutex + 1;
-      getUserPoints(part.UserId, function(error, userPoints) {
-        result.push({
-          'points': userPoints,
-          'userId': part.UserId,
-          'signUpDate': part.CreatedAt
-        });
-        
+      loadPartData(parts[j], function(error, partData) {
+        result.push(partData);
+              
         mutex = mutex - 1;
         if (mutex == 0) {
           readyCallback(error, result);
@@ -110,10 +116,13 @@ var getParticipantsForOffer = function(offerData, readyCallback) {
   });
 };
 
-getExpiredOffers(function(error, data) { 
+var selectWinners = require('./distribution-algorithms.js').selectWinners;
+
+getExpiredOffers(function(error, data) {  
   for (var i = 0; i < data.length; i++) {
-    getParticipantsForOffer(data[i], function(error, partsData) {
-      console.log(partsData);
+    var offer = data[i];
+    getParticipantsForOffer(offer, function(error, partsData) {
+      console.log(selectWinners(partsData, offer.Quantity, 'SelectWinnersByWeightedShuffle'));
     });
   }
 });
