@@ -17,6 +17,7 @@
 
 	<link href="kendo/styles/kendo.mobile.all.min.css" rel="stylesheet" />
 	<link href="styles/main.css" rel="stylesheet" />
+	<link href="styles/fonts.css" rel="stylesheet" />
 </head>
 <body id="friendsApp">
 	<section data-role="layout" data-id="default">
@@ -24,12 +25,12 @@
 	</section>
 	<!--WELCOME VIEW -->
 	<div data-role="view" id="welcome" data-layout="default" class="welcome-scrn form-view" data-model="app.viewModels.login">
-		<h1><b>Everlive</b> sample application</h1>
+		<h1><b>FAIRSHARE</b></h1>
 		<form id="login-form">
 			<ul data-role="listview" data-style="inset">
 				<li>
 					<label for="loginUsername">Username</label>
-					<input type="text" id="loginUsername" required validationmessage="Username is required!" /></li>
+					<input type="text" id="loginUsername" required validationmessage="Username is required!" autocorrect="off" autocapitalize="off"/></li>
 				<li>
 					<label for="loginPassword">Password</label>
 					<input type="password" id="loginPassword" required validationmessage="Password is required!" /></li>
@@ -54,9 +55,9 @@
 
 	<div data-role="drawer" id="menu" style="width: 270px" data-views="['feed', 'add-item']">
 		<ul data-role="listview" data-type="group">
-			<li data-icon="add"><a href="views/addItemView.html" data-transition="up">Share Item</a></li>
+			<li data-icon="add"><a href="views/addItemView.html" data-transition="up" data-role="button">Share Item</a></li>
 			<li data-icon="settings">Profile</li>
-			<li data-icon="off" data-transition="left"><a href="#welcome"> Log Out</a></li>
+			<li data-icon="off" data-transition="left"><a href="#welcome" data-role="button"> Log Out</a></li>
 		</ul>
 	</div>
 

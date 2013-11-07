@@ -1,0 +1,15 @@
+@font-face {
+    font-family: 'slabserif';
+    src: url('PermianSlabSerifTypeface-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'spinnaker';
+    src: url('spinnaker.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
