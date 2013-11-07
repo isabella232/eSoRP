@@ -61,7 +61,6 @@
   <ItemGroup>
     <Content Include="index.html" />
     <Content Include="css\index.css" />
-    <Content Include="js\index.js" />
     <Content Include="img\logo.png" />
     <Content Include="img\cordova.png" />
     <Content Include="cordova.ios.js">
@@ -139,7 +138,6 @@
     <Folder Include="App_Resources\iOS\" />
     <Folder Include="css\" />
     <Folder Include="img\" />
-    <Folder Include="js\" />
     <Folder Include="kendo\" />
     <Folder Include="kendo\js\" />
     <Folder Include="kendo\styles\" />
