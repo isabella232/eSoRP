@@ -1,20 +1,7 @@
 var app = (function () {
     'use strict';
 
-    // global error handling
-    var showAlert = function(message, title, callback) {
-        navigator.notification.alert(message, callback || function () {
-        }, title, 'OK');
-    };
-    var showError = function(message) {
-        showAlert(message, 'Error occured');
-    };
-    window.addEventListener('error', function (e) {
-        e.preventDefault();
-        var message = e.message + "' from " + e.filename + ":" + e.lineno;
-        showAlert(message, 'Error occured');
-        return true;
-    });
+
 
     var onBackKeyDown = function(e) {
         e.preventDefault();
@@ -34,17 +21,7 @@ var app = (function () {
 
     document.addEventListener("deviceready", onDeviceReady, false);
 
-    var applicationSettings = {
-        emptyGuid: '00000000-0000-0000-0000-000000000000',
-        apiKey: 'cCq6jSNpJClBy6vU',
-        scheme: 'http'
-    };
 
-    // initialize Everlive SDK
-    var el = new Everlive({
-        apiKey: applicationSettings.apiKey,
-        scheme: applicationSettings.scheme
-    });
 
     var facebook = new IdentityProvider({
         name: "Facebook",
@@ -58,65 +35,11 @@ var app = (function () {
         display: "touch"
     });
     
-    var AppHelper = {
-        resolveProfilePictureUrl: function (id) {
-            if (id && id !== applicationSettings.emptyGuid) {
-                return el.Files.getDownloadUrl(id);
-            }
-            else {
-                return 'styles/images/avatar.png';
-            }
-        },
-        resolvePictureUrl: function (id) {
-            if (id && id !== applicationSettings.emptyGuid) {
-                return el.Files.getDownloadUrl(id);
-            }
-            else {
-                return '';
-            }
-        },
-        formatDate: function (dateString) {
-            var date = new Date(dateString);
-            var year = date.getFullYear().toString();
-            var month = date.getMonth().toString();
-            var day = date.getDate().toString();
-            return day + '.' + month + '.' + year;
-        },
-        logout: function () {
-            return el.Users.logout();
-        }
-    };
+    
 
-    var mobileApp = new kendo.mobile.Application(document.body, { transition: 'slide', layout: 'mobile-tabstrip' });
+    var mobileApp = new kendo.mobile.Application(document.body, { skin:"flat" });
 
-    var usersModel = (function () {
-        var currentUser = kendo.observable({ data: null });
-        var usersData;
-        var loadUsers = function () {
-            return el.Users.currentUser()
-            .then(function (data) {
-                var currentUserData = data.result;
-                currentUserData.PictureUrl = AppHelper.resolveProfilePictureUrl(currentUserData.Picture);
-                currentUser.set('data', currentUserData);
-                return el.Users.get();
-            })
-            .then(function (data) {
-                usersData = new kendo.data.ObservableArray(data.result);
-            })
-            .then(null,
-                  function (err) {
-                      showError(err.message);
-                  }
-            );
-        };
-        return {
-            load: loadUsers,
-            users: function () {
-                return usersData;
-            },
-            currentUser: currentUser
-        };
-    }());
+
 
     // login view model
     var loginViewModel = (function () {
@@ -206,7 +129,7 @@ var app = (function () {
         };
     }());
 
-    var activitiesModel = (function () {
+    var mainFeedModel = (function () {
         var activityModel = {
             id: 'Id',
             fields: {
@@ -276,7 +199,7 @@ var app = (function () {
     }());
 
     // activities view model
-    var activitiesViewModel = (function () {
+    var mainFeedViewModel = (function () {
         var activitySelected = function (e) {
             mobileApp.navigate('views/itemView.html?uid=' + e.data.uid);
         };
@@ -291,7 +214,7 @@ var app = (function () {
             });
         };
         return {
-            activities: activitiesModel.activities,
+            activities: mainFeedModel.activities,
             activitySelected: activitySelected,
             logout: logout
         };
@@ -301,49 +224,19 @@ var app = (function () {
     var activityViewModel = (function () {
         return {
             show: function (e) {
-                var activity = activitiesModel.activities.getByUid(e.view.params.uid);
+                var activity = mainFeedModel.activities.getByUid(e.view.params.uid);
                 kendo.bind(e.view.element, activity, kendo.mobile.ui);
             }
         };
     }());
 
-    // add item view model
-    var addItemViewModel = (function () {
-        var $newStatus;
-        var validator;
-        var init = function () {
-            validator = $('#enterStatus').kendoValidator().data("kendoValidator");
-            $newStatus = $('#newStatus');
-        };
-        var show = function () {
-            $newStatus.val('');
-            validator.hideMessages();
-        };
-        var saveActivity = function () {
-            if (validator.validate()) {
-                var activities = activitiesModel.activities;
-                var activity = activities.add();
-                activity.Text = $newStatus.val();
-                activity.UserId = usersModel.currentUser.get('data').Id;
-                activities.one('sync', function () {
-                    mobileApp.navigate('#:back');
-                });
-                activities.sync();
-            }
-        };
-        return {
-            init: init,
-            show: show,
-            me: usersModel.currentUser,
-            saveActivity: saveActivity
-        };
-    }());
+  
 
     return {
         viewModels: {
             login: loginViewModel,
             signup: singupViewModel,
-            activities: activitiesViewModel,
+            activities: mainFeedViewModel,
             activity: activityViewModel,
             addItem: addItemViewModel
         }

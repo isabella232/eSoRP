@@ -60,10 +60,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="index.html" />
-    <Content Include="css\index.css" />
-    <Content Include="js\index.js" />
-    <Content Include="img\logo.png" />
-    <Content Include="img\cordova.png" />
     <Content Include="cordova.ios.js">
       <Platform>iOS</Platform>
       <TargetName>cordova.js</TargetName>
@@ -81,15 +77,19 @@
     <Content Include="kendo\styles\images\back.png">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="kendo\styles\images\KendoUI.ttf">
+    <Content Include="kendo\styles\images\kendoui.ttf">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="kendo\styles\images\KendoUI.woff">
+    <Content Include="kendo\styles\images\kendoui.woff">
       <SubType>Content</SubType>
     </Content>
     <Content Include="kendo\styles\kendo.mobile.all.min.css">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="models\addNewItemModel.js" />
+    <Content Include="models\usersModel.js" />
+    <Content Include="scripts\app\everlive.js" />
+    <Content Include="scripts\app\global.js" />
     <Content Include="scripts\app\identity-provider.js">
       <SubType>Content</SubType>
     </Content>
@@ -137,13 +137,11 @@
     <Folder Include="App_Resources\Android\drawable-mdpi\" />
     <Folder Include="App_Resources\Android\drawable-nodpi\" />
     <Folder Include="App_Resources\iOS\" />
-    <Folder Include="css\" />
-    <Folder Include="img\" />
-    <Folder Include="js\" />
     <Folder Include="kendo\" />
     <Folder Include="kendo\js\" />
     <Folder Include="kendo\styles\" />
     <Folder Include="kendo\styles\images\" />
+    <Folder Include="models\" />
     <Folder Include="Plugins\" />
     <Folder Include="scripts\" />
     <Folder Include="scripts\app\" />

@@ -258,15 +258,16 @@ textarea
     height: 8rem;
     font-size: 1rem;
 }
-.km-list textarea
+.km-flat .km-list label {
+	color: #999;
+}
+.km-flat .km-list textarea
 {
-    right: 0;
-    top: 0;
     height: 6.5rem;
-    position: absolute;
-    z-index: 1;
+    
     background: transparent;   
     overflow: auto;
+	width: 100%;
 }
 #friendsApp .km-list textarea
 {
@@ -626,4 +627,4 @@ background-color: #A36A57;
 .km-tablet .km-ios .profile-view .km-list.def-list .lbl, .km-tablet .km-ios .profile-view .km-list.def-list .val
 {
     font-size: 1.4em;
-} 
+}
