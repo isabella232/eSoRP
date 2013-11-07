@@ -1,20 +1,34 @@
-<div data-role="view" id="share" data-layout="default" data-transition="overlay:down" class="share-view"
-    data-init="app.viewModels.addItem.init" data-show="app.viewModels.addItem.show" data-model="app.viewModels.addActivity">
+<div data-role="view" id="add-item" data-layout="default" data-transition="overlay:down" class="share-view"
+    data-init="app.viewModels.addItem.init" data-show="app.viewModels.addItem.show" data-model="app.viewModels.addItem">
     <header data-role="header">
         <div data-role="navbar">
-            Activity
+            What you share
             <a class="nav-button" data-align="left" data-role="backbutton">Cancel</a>
-            <a class="nav-button" data-align="right" data-role="button" data-bind="click: saveActivity">Post</a>
+            <a class="nav-button" data-align="right" data-role="button" data-bind="click: topRated">Top Rated</a>
         </div>
     </header>
     <div id="enterStatus" class="share-form-wrp">
-        <div class="user-info">
+        <!--<div class="user-info">
             <img data-bind="attr:{src: me.get('data').PictureUrl}" alt="styles/images/avatar.png" />
             <h2 data-bind="text: me.get('data').DisplayName">Me</h2>
-        </div>
+        </div>-->
         <div class="user-share">
-            <textarea id="newStatus" placeholder="What's on your mind?" required validationMessage="Comment text is required!"></textarea>
-            <div id="newCommentValidation" class="validation">Comment text is required!</div>
+            <textarea id="description" placeholder="What you want to share?" required validationMessage="required"></textarea>
+            <div id="newCommentValidation" class="validation">required</div>
+			<br />
+			<label for="qty">Quantity</label><input id="qty" type="number" />
+			<br />
+			<label for="startTime">Start Time</label><input id="startTime" type="datetime" />
+			<br />
+			<label for="endTime">End Time</label><input id="endTime" type="datetime" />
+			<br />
+			<label for="algorithm">End Time</label>
+			<select>
+				<option value="shuffle">Shuffle</option>
+				<option value="rating">Rating</option>
+				<option value="rating+shuffle">Rating+Shuffle</option>
+				<option value="fifo">First-in-first-out</option>
+			</select>
         </div>
     </div>
-</div>
+</div> <!--Name, Quantity, StartTime, EndTime, Algorithm-->

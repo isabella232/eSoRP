@@ -80,15 +80,19 @@
     <Content Include="kendo\styles\images\back.png">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="kendo\styles\images\KendoUI.ttf">
+    <Content Include="kendo\styles\images\kendoui.ttf">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="kendo\styles\images\KendoUI.woff">
+    <Content Include="kendo\styles\images\kendoui.woff">
       <SubType>Content</SubType>
     </Content>
     <Content Include="kendo\styles\kendo.mobile.all.min.css">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="models\addNewItemModel.js" />
+    <Content Include="models\usersModel.js" />
+    <Content Include="scripts\app\everlive.js" />
+    <Content Include="scripts\app\global.js" />
     <Content Include="scripts\app\identity-provider.js">
       <SubType>Content</SubType>
     </Content>
@@ -142,6 +146,7 @@
     <Folder Include="kendo\js\" />
     <Folder Include="kendo\styles\" />
     <Folder Include="kendo\styles\images\" />
+    <Folder Include="models\" />
     <Folder Include="Plugins\" />
     <Folder Include="scripts\" />
     <Folder Include="scripts\app\" />
