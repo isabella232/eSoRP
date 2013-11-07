@@ -35,12 +35,6 @@ var app = (function () {
         display: "touch"
     });
     
-    
-
-    var mobileApp = new kendo.mobile.Application(document.body, { skin:"flat" });
-
-
-
     // login view model
     var loginViewModel = (function () {
         var login = function () {
