@@ -5,9 +5,7 @@ var addItemViewModel = (function () {
     var $selectType;
     var $startTime;
     var $endTime;
-    var validator;
     var init = function () {
-        //validator = $('#enterStatus').kendoValidator().data("kendoValidator");
         $description = $('#description');
         $qty = $('#qty');
         $selectDistributionType = $('#selectDistributionType option:selected');
@@ -16,24 +14,27 @@ var addItemViewModel = (function () {
         $endTime = $('#endTime');
     };
     var show = function () {
-        //$newStatus.val('');
-        //validator.hideMessages();
+        $description.val('');
+        $qty.val('');
+        $startTime.val('');
+        $endTime.val('');
     };
     var saveItem = function () {
-        //if (validator.validate()) {
-        //var activities = mainFeedModel.activities;
-
         var newItem = new Object();
         newItem.Description = $description.val();
         newItem.Quantity = $qty.val();
-        newItem.StartDate = $startTime.val();
-        newItem.EndDate = $endTime.val();
+        debugger;
+        newItem.StartTime = kendo.toString(kendo.parseDate($startTime.val()), 'u')
+        newItem.EndTime = kendo.toString(kendo.parseDate($endTime.val()), 'u')
         newItem.AlgorithmName = $selectDistributionType.text();
         newItem.Type = $selectType.text();
         newItem.UserId = usersModel.currentUser.uid;
         
         Everlive.$.data('Item').create(newItem)
-        .on(function () { mobileApp.navigate('#:back'); })
+        .then(function (x) {
+            show();
+            mobileApp.navigate('#feed');
+        })
     };
 
     return {
