@@ -86,6 +86,7 @@
     <Content Include="kendo\styles\kendo.mobile.all.min.css">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="models\inviteModel.js" />
     <Content Include="models\signupModel.js" />
     <Content Include="models\addNewItemModel.js" />
     <Content Include="models\mainFeedModel.js" />

@@ -110,6 +110,7 @@ var app = (function () {
             item: itemViewModel,
             addItem: addItemViewModel,
             currentUser: currentUserViewModel,
+            inviteUsers: inviteViewModel
         }
     };
 }());

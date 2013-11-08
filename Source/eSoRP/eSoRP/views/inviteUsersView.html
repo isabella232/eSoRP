@@ -1,9 +1,28 @@
-﻿<!DOCTYPE html>
+﻿<div data-role="view"
+    data-title="Invite Friends"
+    id="single-invite"
+    data-layout="default"
+    class="items-view"
+    data-init="app.viewModels.inviteUsers.init"
+    data-show="app.viewModels.inviteUsers.show"
+    data-model="app.viewModels.inviteUsers">
+    <header data-role="header">
+        <div data-role="navbar">
+            Invite friends
+        </div>
+    </header>
 
-<html>
-	<head>
-		<title></title>
-	</head>
-	<body>
-	</body>
-</html>
+    <div id="invitestatus">
+        <ul data-role="listview" data-style="inset">
+            <li>
+                <textarea id="friends" placeholder="invite more friends" required validationmessage="required"></textarea>
+                <div id="newinvitevalidation" class="validation">required</div>
+            </li>
+
+            <li>
+                <button id="send" data-role="button" data-bind="click:saveitem">invite</button>
+                <button id="cancel" data-role="backbutton">not now</button>
+            </li>
+        </ul>
+    </div>
+</div>
