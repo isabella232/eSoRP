@@ -37,7 +37,6 @@ var addItemViewModel = (function () {
         items.one('sync', function () {
             clear();
             mobileApp.hideLoading();
-            app.viewModels.mainFeed.refreshItems();
             mobileApp.navigate('#feed');
         });
 
