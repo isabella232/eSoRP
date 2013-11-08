@@ -1,6 +1,7 @@
 ﻿// leader board view model
 var leaderBoardViewModel = (function () {
-	var topUsersModel = []
+
+	var topUsersModel = new kendo.data.ObservableArray([]);
 
 	var compareUsersByPoints = function (user, otherUser) {
 		if (user.Points === undefined) {
@@ -11,9 +12,9 @@ var leaderBoardViewModel = (function () {
 		}
 
 		if (user.Points < otherUser.Points)
-			return -1;
-		if (user.Points > otherUser.Points)
 			return 1;
+		if (user.Points > otherUser.Points)
+			return -1;
 		return 0;
 	};
 
@@ -33,7 +34,10 @@ var leaderBoardViewModel = (function () {
 	var requestTopUsers = function () {
 		Everlive.$.data('Users').get().
 			then(function (data) {
-				topUsersModel = getTopUsers(data.result, data.count);
+				var top = getTopUsers(data.result, data.count);
+				for (var index in top) {
+					topUsersModel.push(top[index]);
+				}
 			},
 			function (error) {
 			});
@@ -47,11 +51,6 @@ var leaderBoardViewModel = (function () {
 	});
 
 	var show = function () {
-		topUsersModel.push(
-			{
-				Email: "coco@telerik.com",
-				Points: 88
-			});
 	}
 
 	return {
