@@ -10,7 +10,7 @@ var singupViewModel = (function () {
 		dataSource.BirthDate = birthDate;
 		dataSource.Points = 100;
 		Everlive.$.Users.register(
-			dataSource.Username,
+			dataSource.Email,
 			dataSource.Password,
 			dataSource)
 		.then(function () {
@@ -24,7 +24,6 @@ var singupViewModel = (function () {
 	};
 	var show = function () {
 		dataSource = kendo.observable({
-			Username: '',
 			Password: '',
 			DisplayName: '',
 			Email: '',

@@ -23,6 +23,7 @@ var app = (function () {
     var onDeviceReady = function() {
         //Handle document events
         document.addEventListener("backbutton", onBackKeyDown, false);
+       // registerPushNotifications();
     };
 
     document.addEventListener("deviceready", onDeviceReady, false);
@@ -44,8 +45,10 @@ var app = (function () {
     // login view model
     var loginViewModel = (function () {
         var login = function () {
+
             mobileApp.showLoading();
-            var username = $('#loginUsername').val();
+
+            var username = $('#loginEmail').val();
             var password = $('#loginPassword').val();
 
             el.Users.login(username, password)
