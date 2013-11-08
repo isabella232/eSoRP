@@ -1,25 +1,29 @@
 ﻿
 var mainFeedModel = (function () {
-	var activityModel = {
+	var itemsModel = {
 		id: 'Id',
 		fields: {
 			Text: {
-				field: 'Text',
+				field: 'Description',
 				defaultValue: ''
 			},
-			CreatedAt: {
-				field: 'CreatedAt',
+			Quantity: {
+			    field: 'Quantity',
+			    defaultValue: ''
+			},
+			StartTime: {
+				field: 'StartTime',
 				defaultValue: new Date()
 			},
-			Picture: {
-				fields: 'Picture',
+			EndTime: {
+				fields: 'EndTime',
 				defaultValue: ''
 			},
 			UserId: {
 				field: 'UserId',
 				defaultValue: ''
 			},
-			Likes: {
+			Participated: {
 				field: 'Likes',
 				defaultValue: []
 			}
