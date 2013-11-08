@@ -19,7 +19,7 @@
 				defaultValue: ''
 			},
 			UserId: {
-				field: 'UserId',
+				field: 'Owner',
 				defaultValue: ''
 			},
 			//Participated: {
@@ -27,7 +27,9 @@
 			//	defaultValue: []
 			//}
 		},
-
+		ExpiresAtFormatted: function () {
+		    return AppHelper.formatDate(this.get('EndTime'));
+		},
 		PictureUrl: function () {
 			return AppHelper.resolvePictureUrl(this.get('Picture'));
 		},
