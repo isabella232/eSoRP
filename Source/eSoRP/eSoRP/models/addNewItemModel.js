@@ -24,7 +24,8 @@ var addItemViewModel = (function () {
     };
     var saveItem = function () {
         mobileApp.showLoading();
-        var newItem = new Object();
+        var items = app.viewModels.mainFeed.items;
+        var newItem = items.add();
         newItem.Description = $description.val();
         newItem.Quantity = $qty.val();
         newItem.StartTime = kendo.toString(kendo.parseDate($startTime.val()), 'u')
@@ -32,13 +33,15 @@ var addItemViewModel = (function () {
         newItem.AlgorithmName = $selectDistributionType.text();
         newItem.Type = $selectType.check() == true ? "Personal" : "Enterprise";
         newItem.UserId = usersModel.currentUser.uid;
-        
-        Everlive.$.data('Item').create(newItem)
-        .then(function (x) {
+
+        items.one('sync', function () {
             clear();
             mobileApp.hideLoading();
+            app.viewModels.mainFeed.refreshItems();
             mobileApp.navigate('#feed');
-        })
+        });
+
+        items.sync();
     };
 
     return {
