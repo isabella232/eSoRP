@@ -5,23 +5,39 @@ var inviteViewModel = (function () {
     var $description;
 
     var saveitem = function () {
-        $description.val('');
+        //$description.val('');
 
-        showAlert("Invitations sent");
-        mobileApp.navigate('#welcome');
+        //showAlert("Invitations sent");
+        //mobileApp.navigate('#welcome');
+
+        mobileApp.showLoading();
+        var newItem = new Object();
+
+        newItem.Recipient = $description.val();
+
+        Everlive.$.data('SendInvite').create(newItem)
+        .then(function (x) {
+            clear();
+            mobileApp.hideLoading();
+            showAlert("Invitation sent");
+            mobileApp.navigate('#feed');
+        })
 
     }
 
     var init = function ()
     {
-        $description = $('#description');
+        $description = $('#friends');
         $('#send').click(saveitem);
     };
 
+    var clear = function ()
+    {
+        $description.val('');
+    }
+
     var show = function () {
-        dataSource = kendo.observable({
-        });
-        kendo.bind($('#single-invite'), dataSource, kendo.mobile.ui);
+        clear();
        
     };
     return {
