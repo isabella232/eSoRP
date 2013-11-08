@@ -638,3 +638,6 @@ background-color: #A36A57;
 	height: 1.6em;
 	margin-left: -.77em;
 }
+.km-header, .km-drawer {
+	margin-top: 20px;
+}

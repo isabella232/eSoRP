@@ -10,8 +10,8 @@
 	<script src="scripts/app/identity-provider.js"></script>
 
 	<script src="scripts/app/everlive.js" type="text/javascript"></script>
-    <script src="scripts/app/global.js" type="text/javascript"></script>
-    <script src="models/usersModel.js" type="text/javascript"></script>
+	<script src="scripts/app/global.js" type="text/javascript"></script>
+	<script src="models/usersModel.js" type="text/javascript"></script>
 	<script src="models/mainFeedModel.js" type="text/javascript"></script>
 	<script src="models/signupModel.js" type="text/javascript"></script>
 	<script src="models/addNewItemModel.js" type="text/javascript"></script>
@@ -56,21 +56,38 @@
 		</div>
 	</div>
 
-	<div data-role="drawer" id="menu" style="width: 270px" data-views="['feed', 'add-item']">
+	<div data-role="drawer" id="menu" style="width: 200px" data-views="['feed', 'add-item']">
 		<ul data-role="listview">
-			<li data-icon="none"><a href="views/mainFeedView.html" data-transition="up"><i class="fa fa-lock"></i>Share Feed</a></li>
-			<li data-icon="none"><a href="views/addItemView.html" data-transition="up" >Share Item</a></li>
-			<li data-icon="none"><a href="views/inviteUsersView.html" data-transition="up" >Invite</a></li>
-			<li data-icon="none"><a href="views/leaderBoardView.html" data-transition="up" >Leaderboard</a></li>
-			<li data-icon="none"><a href="views/profileView.html" data-transition="up" >My Profile</a></li>
-			<li data-icon="none" data-transition="left"><a href="#welcome" ><i class="fa fa-lock"></i>Log Out</a></li>
+			<li data-icon="none">
+				<a href="views/mainFeedView.html">
+					<i class="fa fa-list"></i>Share Feed</a></li>
+			<li data-icon="none">
+				<a href="views/addItemView.html">
+					<i class="fa fa-gift"></i>Share Item</a></li>
+			<li data-icon="none">
+				<a href="views/inviteUsersView.html">
+					<i class="fa fa-users"></i>Invite</a></li>
+			<li data-icon="none">
+				<a href="views/leaderBoardView.html">
+					<i class="fa fa-trophy"></i>Leaderboard</a></li>
+			<li data-icon="none">
+				<a href="views/profileView.html">
+					<i class="fa fa-gear"></i>My Profile</a></li>
+			<li data-icon="none" data-transition="left">
+				<a href="#welcome">
+					<i class="fa fa-lock"></i>Log Out</a></li>
 		</ul>
 	</div>
 
 	<div data-role="layout" data-id="app-layout">
 		<header data-role="header">
 			<div data-role="navbar">
-				<a data-role="button" data-rel="drawer" href="#menu" data-icon="drawer-button" data-align="left"></a>
+				<a data-role="button"
+					data-rel="drawer"
+					href="#menu" 
+					data-align="left">
+					<i class="fa fa-bars"></i>
+				</a>
 				<span data-role="view-title"></span>
 			</div>
 		</header>
