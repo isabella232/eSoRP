@@ -35,6 +35,7 @@ var mainFeedModel = (function () {
 				return e.Id === userId;
 			})[0];
 			return user ? {
+			    Id: user.Id,
 				DisplayName: user.DisplayName,
 				PictureUrl: AppHelper.resolveProfilePictureUrl(user.Picture)
 			} : {

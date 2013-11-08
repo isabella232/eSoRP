@@ -1,11 +1,15 @@
 var itemViewModel = (function (e) {
+    var item;
     return {
         show: function (e) {
-            var item = mainFeedViewModel.items.getByUid(e.view.params.uid);
+            item = mainFeedViewModel.items.getByUid(e.view.params.uid);
             kendo.bind(e.view.element, item, kendo.mobile.ui);
         },
         subscribe: function (e) {
-            debugger;
+            var participant = new Object();
+            participant.UserId = item.User().Id;
+            participant.ItemId = item.Id;
+            Everlive.$.data('Participant').create(participant)
             mobileApp.navigate('views/mainFeedView.html');
         }
     };
