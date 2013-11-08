@@ -7,11 +7,11 @@
 	 data-init="app.viewModels.leaderBoard.init"
 	 data-show="app.viewModels.leaderBoard.show">
 
-    <ul id="items-listview" data-style="inset" data-role="listview" data-template="itemTemplate"
+    <ul id="items-listview" data-style="inset" data-role="listview" data-template="leaderItemTemplate"
         data-bind="source: items"></ul>
 </div>
 
-<script type="text/x-kendo-template" id="itemTemplate">
+<script type="text/x-kendo-template" id="leaderItemTemplate">
     <div>
 		${Email} has ${Points} points 
     </div>

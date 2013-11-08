@@ -51,10 +51,14 @@ var leaderBoardViewModel = (function () {
 	});
 
 	var show = function () {
+		requestTopUsers();
 	}
 
+	var init = function () {
+	};
+
 	return {
-		init: requestTopUsers,
+		init: init,
 		show: show,
 		items: itemsDataSource,
 		itemSelected: itemSelected,
