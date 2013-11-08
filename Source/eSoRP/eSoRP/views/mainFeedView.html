@@ -26,7 +26,9 @@
 
 <script type="text/x-kendo-template" id="itemTemplate">
     <div data-role="touch" data-bind="events: { tap: itemSelected }">
-        <b>${Description}</b><br/>
+        <b>${Description}</b>
+        (<span id="Span1" data-bind="text: Quantity" class="user-share-txt"></span>)
+        <br/>
         <i style="font-size:0.7em">Grab the perk before it expires (<time id="expirationDate" class="timeSpan" data-bind="text: ExpiresAtFormatted"></time>)</i>
     </div>
 </script>
