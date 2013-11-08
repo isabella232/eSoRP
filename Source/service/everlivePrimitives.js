@@ -73,6 +73,31 @@ var updateData = function(typeName, item, readyCallback) {
   req.end();
 }
 
+var updateDataWithFilter = function(typeName, filter, item, readyCallback) {  
+ 
+  var callback = function(response) {
+    response.on('data', function (chunk) {
+      var result = JSON.parse(chunk);
+      if (result.Result != 1) {
+        readyCallback(result);
+      }
+    });
+  };
+  
+  var data = JSON.stringify(item);
+  
+  var options = createOptions(typeName, 'PUT');
+  options.headers['Content-Type'] = 'application/json';
+  options.headers['Content-Length'] = data.length;
+  setFilter(options, filter);
+
+  var req = http.request(options, callback);
+    
+  req.write(data);
+  
+  req.end();
+}
+
 var addData = function(typeName, item, readyCallback) {  
   if (!item) {
     readyCallback('Invalid Argument');
@@ -102,5 +127,6 @@ var addData = function(typeName, item, readyCallback) {
 }
 
 exports.updateData = updateData;
+exports.updateDataWithFilter = updateDataWithFilter;
 exports.addData = addData;
 exports.getData = getData;

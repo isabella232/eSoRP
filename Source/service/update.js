@@ -174,13 +174,27 @@ var sendNotificationToWinner = function(offer, winner) {
 };
 
 var completeOffer = function(offer, winners) {
-  //markOfferAsCompleted(offer);
+  markOfferAsCompleted(offer);
   givePointsToUser(offer.Owner, offer, 10);
   sendNotificationToOwner(offer, winners);
 };
 
-var grantOfferToUser = function(offer, winner) {
-  givePointsToUser(winner, offer, 0);
+var grantOfferToUser = function(offer, winner) { 
+  //givePointsToUser(winner, offer, 0);
+  
+  var filter = { 
+    "$and": [ 
+      { 'ItemId': offer.Id }, 
+      { 'UserId': winner }
+    ]};
+    
+  var newData = {
+    'IsAssigned': true
+  };
+
+  everlivePrimitives.updateDataWithFilter(constants.participantName, filter, newData, function(error, data) {
+  });
+  
   sendNotificationToWinner(offer, winner);
 };
 
