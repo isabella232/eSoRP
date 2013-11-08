@@ -641,11 +641,12 @@ background-color: #A36A57;
 	height: 1.6em;
 	margin-left: -.77em;
 }
-.km-on-ios .km-header,.km-ios .km-drawer {
+.km-on-ios .km-header,.km-on-ios .km-drawer {
 	margin-top: 20px;
 }
 #welcome .km-content {
 	background-color:transparent;
+	padding-top:10%;
 }
 #welcome {
 	background-image: url(images/blured-fairshare.jpg);
