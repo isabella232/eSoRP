@@ -22,10 +22,6 @@
 				field: 'Owner',
 				defaultValue: ''
 			},
-			//Participated: {
-			//	field: 'Likes',
-			//	defaultValue: []
-			//}
 		},
 		ExpiresAtFormatted: function () {
 		    return AppHelper.formatDate(this.get('EndTime'));
