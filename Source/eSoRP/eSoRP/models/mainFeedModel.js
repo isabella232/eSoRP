@@ -31,20 +31,19 @@
 		PictureUrl: function () {
 			return AppHelper.resolvePictureUrl(this.get('Picture'));
 		},
-		//User: function () {
-		//    debugger;
-		//	var userId = this.get('UserId');
-		//	var user = $.grep(usersModel.users(), function (e) {
-		//		return e.Id === userId;
-		//	})[0];
-		//	return user ? {
-		//		DisplayName: user.DisplayName,
-		//		PictureUrl: AppHelper.resolveProfilePictureUrl(user.Picture)
-		//	} : {
-		//		DisplayName: 'Anonymous',
-		//		PictureUrl: AppHelper.resolveProfilePictureUrl()
-		//	};
-		//}
+		User: function () {
+			var userId = this.get('UserId');
+			var user = $.grep(usersModel.users(), function (e) {
+				return e.Id === userId;
+			})[0];
+			return user ? {
+				DisplayName: user.DisplayName,
+				PictureUrl: AppHelper.resolveProfilePictureUrl(user.Picture)
+			} : {
+				DisplayName: 'Anonymous',
+				PictureUrl: AppHelper.resolveProfilePictureUrl()
+			};
+		}
 	};
 	var itemsDataSource = new kendo.data.DataSource({
 		type: 'everlive',
@@ -70,7 +69,7 @@
 }());
 
 var mainFeedViewModel = (function () {
-	var itemSelected = function (e) {
+    var itemSelected = function (e) {
 		mobileApp.navigate('views/itemView.html?uid=' + e.data.uid);
 	};
 	var navigateHome = function () {

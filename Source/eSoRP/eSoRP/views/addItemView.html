@@ -8,7 +8,7 @@
 	<div id="enterStatus">
 		<ul data-role="listview" data-style="inset">
 			<li>
-				<textarea id="description" placeholder="What you have to share today?" required validationmessage="required"></textarea>
+				<textarea id="description" placeholder="What are you sharing today?" required validationmessage="required"></textarea>
 				<div id="newCommentValidation" class="validation">required</div>
 			</li>
 
@@ -42,14 +42,8 @@
 				</label>
 			</li>
             <li>
-				<label>
-					Type
-			<select id="selectType">
-				<option value="personal">Personal</option>
-				<option value="enterprise">Enterprise</option>
-			</select>
-
-				</label>
+                <input id="selectType" type="checkbox" data-role="switch" data-on-label="Enterprise"
+                     data-off-label="Personal" />
 			</li>
 			<li>
 				<button id="share" data-role="button" data-bind="click: saveItem">Share</button>
@@ -58,4 +52,4 @@
 		</ul>
 	</div>
 </div>
-<!--Name, Quantity, StartTime, EndTime, Algorithm-->
+

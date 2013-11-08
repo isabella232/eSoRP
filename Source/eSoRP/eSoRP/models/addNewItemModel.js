@@ -9,7 +9,7 @@ var addItemViewModel = (function () {
         $description = $('#description');
         $qty = $('#qty');
         $selectDistributionType = $('#selectDistributionType option:selected');
-        $selectType = $('#selectType option:selected');
+        $selectType = $("#selectType").data("kendoMobileSwitch");
         $startTime = $('#startTime');
         $endTime = $('#endTime');
     };
@@ -30,7 +30,7 @@ var addItemViewModel = (function () {
         newItem.StartTime = kendo.toString(kendo.parseDate($startTime.val()), 'u')
         newItem.EndTime = kendo.toString(kendo.parseDate($endTime.val()), 'u')
         newItem.AlgorithmName = $selectDistributionType.text();
-        newItem.Type = $selectType.text();
+        newItem.Type = $selectType.check() == true ? "Enterprise" : "Personal";
         newItem.UserId = usersModel.currentUser.uid;
         
         Everlive.$.data('Item').create(newItem)

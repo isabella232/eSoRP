@@ -1,8 +1,14 @@
+var itemViewModel = (function (e) {
+    return {
+        show: function (e) {
+            var item = mainFeedViewModel.items.getByUid(e.view.params.uid);
+            kendo.bind(e.view.element, item, kendo.mobile.ui);
+        }
+    };
+}());
+
 var app = (function () {
     'use strict';
-
-
-
     var onBackKeyDown = function(e) {
         e.preventDefault();
         navigator.notification.confirm('Do you really want to exit?', function (confirmed) {
@@ -38,6 +44,7 @@ var app = (function () {
     // login view model
     var loginViewModel = (function () {
         var login = function () {
+            mobileApp.showLoading();
             var username = $('#loginUsername').val();
             var password = $('#loginPassword').val();
 
@@ -46,10 +53,12 @@ var app = (function () {
                 return usersModel.load();
             })
             .then(function () {
+                mobileApp.hideLoading();
                 mobileApp.navigate('views/mainFeedView.html');
             })
             .then(null,
                   function (err) {
+                      mobileApp.hideLoading();
                       showError(err.message);
                   }
             );
@@ -93,12 +102,3 @@ var app = (function () {
     };
 }());
 
-
-var itemViewModel = (function () {
-    return {
-        show: function (e) {
-            var item = mainFeedModel.items.getByUid(e.view.params.uid);
-            kendo.bind(e.view.element, item, kendo.mobile.ui);
-        }
-    };
-}());

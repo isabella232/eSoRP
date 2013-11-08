@@ -1,29 +1,27 @@
 <div data-role="view"
-	 data-title="Comunity Shares"
-	 id="feed"
-	 data-layout="app-layout"
-	 class="items-view"
-	 data-model="app.viewModels.mainFeed">
-    
+    data-title="Comunity Shares"
+    id="feed"
+    data-layout="app-layout"
+    class="items-view"
+    data-model="app.viewModels.mainFeed">
+
     <ul id="items-listview" data-style="inset" data-role="listview" data-template="itemTemplate"
-        data-bind="source: items"></ul>
+        data-bind="source: items">
+    </ul>
     <p id="no-items-span" hidden="hidden" class="no-items-msg">
-        <b>There is nothing shared.</b><br /><br />Tap on the share sign and start sharing.
+        <b>There is nothing shared.</b><br />
+        <br />
+        Tap on the share sign and start sharing.
     </p>
-	<footer data-role="footer">
-		<a data-role="button" data-icon="none" class="fa fa-gift" href="views/addItemView.html"></a>
+    <footer data-role="footer">
+        <a data-role="button" data-icon="none" class="fa fa-gift" href="views/addItemView.html"></a>
     </footer>
 </div>
 
 <script type="text/x-kendo-template" id="itemTemplate">
     <div data-role="touch" data-bind="events: { tap: itemSelected }">
-        <div class="user-info">
-            
-            <time class="timeSpan">${EndTime}</time>
-            <i>Grab the perk before it expires</i>
-        </div>
-        <div class="user-share">
-            <a class="user-share-txt">${Description}</a>
-        </div>
+    <a class="user-share-txt">${Description}</a>    
+        <time class="timeSpan">${EndTime}</time>
+        <i>Grab the perk before it expires</i>
     </div>
 </script>
