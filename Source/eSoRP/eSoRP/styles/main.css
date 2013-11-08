@@ -626,7 +626,7 @@ background-color: #A36A57;
 }
  
 #feed .km-footer {
-	height: 5.5em;
+	height: 1em;
 	background-color: transparent;
 	padding-left:50%
 }
@@ -640,6 +640,7 @@ background-color: #A36A57;
 	width: 1.6em;
 	height: 1.6em;
 	margin-left: -.77em;
+	margin-top: -4em;
 }
 .km-on-ios .km-header,.km-on-ios .km-drawer {
 	margin-top: 20px;
