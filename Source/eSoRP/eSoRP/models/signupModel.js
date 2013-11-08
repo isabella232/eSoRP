@@ -8,6 +8,7 @@ var singupViewModel = (function () {
 		if (birthDate.toJSON() === null)
 			birthDate = new Date();
 		dataSource.BirthDate = birthDate;
+		dataSource.Points = 100;
 		Everlive.$.Users.register(
 			dataSource.Username,
 			dataSource.Password,
