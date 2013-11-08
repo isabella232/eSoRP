@@ -42,16 +42,17 @@
 		<ol class="group-wrp">
 			<li>
 				<span data-role="touch" data-bind="events: { tap: login }" style="display: inline-block">
-					<a data-role="button" class="btn-login btn-big">Login</a>
+					<a data-role="button" class="btn-big"><i class="fa fa-sign-in"></i> Login</a>
 				</span>
-				<span data-role="touch" data-bind="events: { tap: loginWithFacebook }" style="display: inline-block">
+				<!--<span data-role="touch" data-bind="events: { tap: loginWithFacebook }" style="display: inline-block">
 					<a data-role="button" class="btn-login-fb btn-big">Login</a>
-				</span>
+				</span>-->
+					<a data-role="button" class="btn-big" href="views/signupView.html"><i class="fa fa-edit"></i> Sign up</a>
 			</li>
-			<li class="b-top"><a data-role="button" href="views/signupView.html" class="btn-signup btn-big">Sign up</a> </li>
+			
 		</ol>
 
-		<div data-role="footer">
+		<div data-role="footer" class="transparent">
 			<p>Powered by Icenium Everlive.</p>
 		</div>
 	</div>

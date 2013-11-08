@@ -339,8 +339,11 @@ textarea
 {
     display: block;
     font-size: 2em;
-    text-shadow: 1px 2px 3px #999;    
     color: #10c4b2;
+}
+
+.transparent {
+	opacity: .5;
 }
 /*.welcome-scrn h1 b::before
 {
@@ -638,6 +641,6 @@ background-color: #A36A57;
 	height: 1.6em;
 	margin-left: -.77em;
 }
-.km-header, .km-drawer {
+.km-ios .km-header,.km-ios .km-drawer {
 	margin-top: 20px;
 }
