@@ -19,7 +19,10 @@
         <img id="picture" data-bind="attr:{src: PictureUrl()}" width="100%"/>
         <div class="user-share">
             <span id="itemText" data-bind="text: Description" class="user-share-txt"></span> <br/>
-            <i style="font-size:0.7em">Grab it before <time id="itemDate" data-bind="text: ExpiresAtFormatted"></time></i>
         </div>
+
+        <li style="text-align:center">
+			<button id="subscribe" data-role="button" data-bind="click: subscribe" class="btn-big"><i class="fa fa-plus-circle"></i> Join the raffle</button>
+		</li>
     </div>
 </div>

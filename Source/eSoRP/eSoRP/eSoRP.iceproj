@@ -3,7 +3,7 @@
   <PropertyGroup>
     <ProjectGuid>3251dd95-eeb2-4d6d-9f7f-a76d7573d19d</ProjectGuid>
     <ProjectTypeGuids>{070BCB52-5A75-4F8C-A973-144AF0EAFCC9}</ProjectTypeGuids>
-    <AppIdentifier>com.telerik.eSoRP</AppIdentifier>
+    <AppIdentifier>com.telerik.FARESHARE</AppIdentifier>
     <ProjectName>eSoRP</ProjectName>
     <IsRunnable>true</IsRunnable>
     <FrameworkVersion>3.0.0</FrameworkVersion>
@@ -14,6 +14,7 @@
     <AndroidHardwareAcceleration>false</AndroidHardwareAcceleration>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
+    <BundleVersion>1.0</BundleVersion>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>

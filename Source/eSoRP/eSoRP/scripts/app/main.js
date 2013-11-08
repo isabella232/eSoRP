@@ -3,6 +3,10 @@ var itemViewModel = (function (e) {
         show: function (e) {
             var item = mainFeedViewModel.items.getByUid(e.view.params.uid);
             kendo.bind(e.view.element, item, kendo.mobile.ui);
+        },
+        subscribe: function (e) {
+            debugger;
+            mobileApp.navigate('views/mainFeedView.html');
         }
     };
 }());
