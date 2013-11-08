@@ -1,11 +1,18 @@
-﻿<div data-role="view">
-	<header>
-		<div data-role="navbar">
-            Leaderboard
-            <a class="nav-button" data-align="left" data-role="backbutton">Cancel</a>
-        </div>
-    </header>
-	<div data-role="listview">
+﻿<div data-role="view"
+	 data-title="Leadership Board"
+	 id="feeds"
+	 data-layout="app-layout"
+	 class="items-view"
+	 data-model="app.viewModels.leaderBoard"
+	 data-init="app.viewModels.leaderBoard.init"
+	 data-show="app.viewModels.leaderBoard.show">
 
-	</div>
+    <ul id="items-listview" data-style="inset" data-role="listview" data-template="itemTemplate"
+        data-bind="source: items"></ul>
 </div>
+
+<script type="text/x-kendo-template" id="itemTemplate">
+    <div>
+		${Email} has ${Points} points 
+    </div>
+</script>

@@ -1,5 +1,7 @@
 ﻿// leader board view model
 var leaderBoardViewModel = (function () {
+	var topUsersModel = []
+
 	var compareUsersByPoints = function (user, otherUser) {
 		if (user.Points === undefined) {
 			user.Points = 0;
@@ -13,7 +15,7 @@ var leaderBoardViewModel = (function () {
 		if (user.Points > otherUser.Points)
 			return 1;
 		return 0;
-	}
+	};
 
 	var getTopUsers = function (users, number) {
 		users.sort(compareUsersByPoints);
@@ -26,20 +28,36 @@ var leaderBoardViewModel = (function () {
 			}
 		}
 		return topUsers;
-	}
+	};
 
-	var showTopUsers = function () {
+	var requestTopUsers = function () {
 		Everlive.$.data('Users').get().
 			then(function (data) {
-				var topUsers = getTopUsers(data.result, data.count);
+				topUsersModel = getTopUsers(data.result, data.count);
 			},
 			function (error) {
-				var result = JSON.stringify(error);
-				$("#leaderBoard").html(result);
 			});
 	};
 
+	var itemSelected = function () {
+	};
+
+	var itemsDataSource = new kendo.data.DataSource({
+		data: topUsersModel
+	});
+
+	var show = function () {
+		topUsersModel.push(
+			{
+				Email: "coco@telerik.com",
+				Points: 88
+			});
+	}
+
 	return {
-		showTopUsers: showTopUsers
+		init: requestTopUsers,
+		show: show,
+		items: itemsDataSource,
+		itemSelected: itemSelected,
 	};
 }());
