@@ -24,7 +24,8 @@
 			},
 		},
 		ExpiresAtFormatted: function () {
-		    return AppHelper.formatDate(this.get('EndTime'));
+		    debugger;
+		    return kendo.toString(kendo.parseDate(this.get('EndTime')), 'D');
 		},
 		PictureUrl: function () {
 			return AppHelper.resolvePictureUrl(this.get('Picture'));

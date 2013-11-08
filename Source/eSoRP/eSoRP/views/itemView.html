@@ -14,11 +14,12 @@
         <div class="user-info">
             <img data-bind="attr:{src: User().PictureUrl}" alt="styles/images/avatar.png" />
             <h2 id="personName" data-bind='text: User().DisplayName'></h2>
-            <time id="itemDate" data-bind="text: EndTime"></time>
+            shares
         </div>
         <img id="picture" data-bind="attr:{src: PictureUrl()}" width="100%"/>
         <div class="user-share">
-            <span id="itemText" data-bind="text: Description" class="user-share-txt"></span>
+            <span id="itemText" data-bind="text: Description" class="user-share-txt"></span> <br/>
+            <i style="font-size:0.7em">Grab it before <time id="itemDate" data-bind="text: ExpiresAtFormatted"></time></i>
         </div>
     </div>
 </div>

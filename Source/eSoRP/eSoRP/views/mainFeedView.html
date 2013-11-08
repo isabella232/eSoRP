@@ -26,7 +26,7 @@
 
 <script type="text/x-kendo-template" id="itemTemplate">
     <div data-role="touch" data-bind="events: { tap: itemSelected }">
-        <b>${Description}</b>
-        <i>Grab the perk before it expires (<time id="expirationDate" class="timeSpan" data-bind="text: ExpiresAtFormatted"></time>)</i>
+        <b>${Description}</b><br/>
+        <i style="font-size:0.7em">Grab the perk before it expires (<time id="expirationDate" class="timeSpan" data-bind="text: ExpiresAtFormatted"></time>)</i>
     </div>
 </script>
