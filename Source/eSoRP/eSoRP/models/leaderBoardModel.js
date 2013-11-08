@@ -23,11 +23,19 @@ var leaderBoardViewModel = (function () {
 
 		var topUsers = [];
 		for (var index in users) {
+			if (index < 3) {
+				users[index].hasCup = true;
+			}
+			else {
+				users[index].hasCup = false;
+			}
+
 			topUsers.push(users[index]);
 			if (topUsers.length === number) {
 				return topUsers;
 			}
 		}
+
 		return topUsers;
 	};
 

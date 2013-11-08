@@ -12,8 +12,24 @@
 </div>
 
 <script type="text/x-kendo-template" id="leaderItemTemplate">
-    <div>
-        <b>${DisplayName}</b><br>
-        <i>${Points} points</i>
-    </div>
+	#if (hasCup) {#
+		<div>
+			<p data-icon="none"
+			   class="fa fa-trophy"
+			   href="views/addItemView.html">
+				<b>${DisplayName}</b><br/><br/>
+				<i style="margin-left:10px;">${Points} points</i>
+			</p>
+		</div>
+	#}
+	else {#
+		<div>
+			<p data-icon="none"
+			   href="views/addItemView.html">
+				<b>${DisplayName}</b><br/>
+				<i style="margin-left:10px;">${Points} points</i>
+			</p>
+		</div>
+        #}#
 </script>
+
