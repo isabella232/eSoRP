@@ -101,6 +101,24 @@
     <Content Include="scripts\lib\everlive.all.min.js">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="styles\font-awesome.css">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="styles\fontawesome-webfont.eot">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="styles\fontawesome-webfont.svg">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="styles\fontawesome-webfont.ttf">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="styles\fontawesome-webfont.woff">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="styles\FontAwesome.otf">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="styles\fonts.css">
       <SubType>Content</SubType>
     </Content>
