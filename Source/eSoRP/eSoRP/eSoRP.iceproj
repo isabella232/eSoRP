@@ -122,16 +122,10 @@
     <Content Include="styles\fonts.css">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="styles\images\app-bg.jpg">
-      <SubType>Content</SubType>
-    </Content>
     <Content Include="styles\images\avatar.png">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="styles\images\border.png">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="styles\images\sprite.png">
+    <Content Include="styles\images\blured-fairshare.jpg">
       <SubType>Content</SubType>
     </Content>
     <Content Include="styles\main.css">
