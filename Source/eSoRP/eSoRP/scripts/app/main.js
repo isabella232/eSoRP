@@ -86,10 +86,9 @@ var app = (function () {
         viewModels: {
             login: loginViewModel,
             signup: singupViewModel,
-            activities: mainFeedViewModel,
-            activity: activityViewModel,
+            mainFeed: mainFeedViewModel,
+            item: itemViewModel,
             addItem: addItemViewModel,
-            leaderBoard: leaderBoardViewModel
         }
     };
 }());
