@@ -1,54 +1,16 @@
-var settings = { 
-  apiKey: 'YjdWxWf3pNLR82t7', 
-  masterKey: '5hAzvSkpL0BoDTd8qvQlvicHp6zkwzec'
-};
-
-var createOptions = function(typeName) {
-  return {
-    host: 'api.everlive.com',
-    path: '/v1/' + settings.apiKey + '/' + typeName + '/',
-    headers: { 'Authorization': 'masterkey ' + settings.masterKey }
-  };
-};
-
-var getData = function(typeName, fields, filter, readyCallback) {
-  var http = require('http');
-
-  var callback = function(response) {
-    var str = '';
-
-    response.on('data', function (chunk) {
-      str += chunk;
-    });
-
-    response.on('end', function () {
-      readyCallback(null, JSON.parse(str));
-    });
-  }
-  
-  var options = createOptions(typeName);
-  
-  if (filter) {
-    options.headers['X-Everlive-Filter'] = JSON.stringify(filter);
-  }
-  
-  if (fields) {
-    options.headers['X-Everlive-Fields'] = JSON.stringify(fields);
-  }
-
-  http.request(options, callback).end();
-}
+var everlivePrimitives = require('./everlivePrimitives.js');
 
 var getExpiredOffers = function(readyCallback) {
   var typeName = 'Item';
-  var fields = { 'Id': 1, 'Quantity': 1, 'AlgorithmName': 1 };
+  //var fields = { 'Id': 1, 'Quantity': 1, 'AlgorithmName': 1 };
+  var fields = null;
   var filter = { 
-    "$and": [ 
-      { 'IsCompleted': false }, 
-      { 'EndTime': { '$lt': new Date() } }
-    ]};
+      "$and": [ 
+        { 'IsCompleted': false }, 
+        { 'EndTime': { '$lt': new Date() } }
+      ]};
 
-  getData(typeName, fields, filter, function(error, data) {
+  everlivePrimitives.getData(typeName, fields, filter, function(error, data) {
     if (!error && data) {
       readyCallback(error, data.Result);
     } else {
@@ -62,7 +24,7 @@ var getParticipants = function(itemId, readyCallback) {
   var fields = { 'UserId': 1, 'CreatedAt': 1 };
   var filter = { 'ItemId': itemId };
 
-  getData(typeName, fields, filter, function(error, data) {
+  everlivePrimitives.getData(typeName, fields, filter, function(error, data) {
     if (!error && data) {
       readyCallback(error, data.Result);
     } else {
@@ -76,7 +38,7 @@ var getUserPoints = function(userId, readyCallback) {
   var fields = { 'Points': 1 };
   var filter = { 'Id': userId };
 
-  getData(typeName, fields, filter, function(error, data) {
+  everlivePrimitives.getData(typeName, fields, filter, function(error, data) {
     var results = data.Result;
     if (!error && results.length > 0) {
       readyCallback(error, results[0].Points);
@@ -118,17 +80,42 @@ var getParticipantsForOffer = function(offerData, readyCallback) {
 
 var selectWinnersForOffer = function(offer, readyCallback) {
   getParticipantsForOffer(offer, function(error, partsData) {
-    console.log(selectWinners(partsData, offer.Quantity, 'SelectWinnersByWeightedShuffle'));
+
+    var algorithm = 'SelectWinnersByWeightedShuffle';
+    var winners = selectWinners(partsData, offer.Quantity, algorithm);
+    readyCallback(error, { 'winners': winners, 'offer': offer });
   });
+};
+
+var completeOffer = function(offer, winners) {
+  console.log('TODO: Mark the offer as completed');
+  console.log('TODO: Post in owner points');
+  console.log('TODO: Update owner points');
+  console.log('TODO: Send notification to owner');
+  console.log(offer);
+  console.log(winners);
+};
+
+var grantOfferToUser = function(offer, winner) {
+  console.log('TODO: Post in winner points');
+  console.log('TODO: Update winner points');
+  console.log('TODO: Send notificiation to winner');
+  console.log(offer);
+  console.log(winner);
 };
 
 var selectWinners = require('./distribution-algorithms.js').selectWinners;
 
-getExpiredOffers(function(error, data) {  
+getExpiredOffers(function(error, data) {    
   for (var i = 0; i < data.length; i++) {
     var offer = data[i];
-    selectWinnersForOffer(offer, function(error, winners) {
-      console.log(winners);
+    
+    selectWinnersForOffer(offer, function(error, result) {
+      completeOffer(result.offer, result.winners);
+      var winners = result.winners;
+      for (var j = 0; j < winners.length; j++) {
+        grantOfferToUser(result.offer, winners[j]);
+      }
     });
   }
 });
