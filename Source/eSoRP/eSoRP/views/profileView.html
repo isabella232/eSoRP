@@ -5,15 +5,14 @@
     data-show="app.viewModels.currentUser.show">
     <header data-role="header">
         <div data-role="navbar">
-            <h2 id="personName" data-bind='text: DisplayName'></h2>
             <a class="nav-button" data-align="left" data-role="backbutton">Back</a>
         </div>
     </header>
-
+    <h2 id="personName" data-bind='text: DisplayName'></h2>
     <div id="status-container" class="user-status-wrp" data-role="listview" data-style="inset">
         <div class="user-info">
             <img data-bind="attr:{src: PictureUrl}" alt="styles/images/avatar.png" />
         </div>
-        <div id="points" data-bind="text: Points"></div>
+        Points: 156<div id="points" data-bind="text: Points"></div>
     </div>
 </div>
