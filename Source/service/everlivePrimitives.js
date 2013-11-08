@@ -73,5 +73,34 @@ var updateData = function(typeName, item, readyCallback) {
   req.end();
 }
 
+var addData = function(typeName, item, readyCallback) {  
+  if (!item) {
+    readyCallback('Invalid Argument');
+    return;
+  }
+  
+  var callback = function(response) {
+    response.on('data', function (chunk) {
+      var result = JSON.parse(chunk);
+      if (result.Result != 1) {
+        readyCallback(result);
+      }
+    });
+  };
+  
+  var data = JSON.stringify(item);
+  
+  var options = createOptions(typeName, 'POST');
+  options.headers['Content-Type'] = 'application/json';
+  options.headers['Content-Length'] = data.length;
+
+  var req = http.request(options, callback);
+    
+  req.write(data);
+  
+  req.end();
+}
+
 exports.updateData = updateData;
+exports.addData = addData;
 exports.getData = getData;
