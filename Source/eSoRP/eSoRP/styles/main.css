@@ -33,19 +33,6 @@
     border-color: rgba(255,255,255,.5);
     
 }
-.b-top
-{
-    background: transparent url(images/border.png) repeat-x 0 0;
-}
-.b-bottom
-{
-    background: transparent url(images/border.png) repeat-x 0 100%;
-}
-.b-top, .b-bottom
-{
-    background-repeat: repeat-x;
-    background-color: transparent;    
-}
 /* Buttons */
 #friendsApp.km-android .km-leftitem
 {
@@ -629,3 +616,10 @@ background-color: #A36A57;
 {
     font-size: 1.4em;
 }
+
+.km-drawer .km-listview-link i.fa {
+	margin-left: -1em;
+	margin-right: .5em;
+}
+ 
+
