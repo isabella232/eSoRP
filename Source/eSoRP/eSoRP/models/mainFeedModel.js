@@ -1,9 +1,8 @@
-﻿
-var mainFeedModel = (function () {
+﻿var mainFeedModel = (function () {
 	var itemsModel = {
 		id: 'Id',
 		fields: {
-			Text: {
+		    Description: {
 				field: 'Description',
 				defaultValue: ''
 			},
@@ -23,58 +22,55 @@ var mainFeedModel = (function () {
 				field: 'UserId',
 				defaultValue: ''
 			},
-			Participated: {
-				field: 'Likes',
-				defaultValue: []
-			}
+			//Participated: {
+			//	field: 'Likes',
+			//	defaultValue: []
+			//}
 		},
-		CreatedAtFormatted: function () {
-			return AppHelper.formatDate(this.get('CreatedAt'));
-		},
+
 		PictureUrl: function () {
 			return AppHelper.resolvePictureUrl(this.get('Picture'));
 		},
-		User: function () {
-			var userId = this.get('UserId');
-			var user = $.grep(usersModel.users(), function (e) {
-				return e.Id === userId;
-			})[0];
-			return user ? {
-				DisplayName: user.DisplayName,
-				PictureUrl: AppHelper.resolveProfilePictureUrl(user.Picture)
-			} : {
-				DisplayName: 'Anonymous',
-				PictureUrl: AppHelper.resolveProfilePictureUrl()
-			};
-		}
+		//User: function () {
+		//    debugger;
+		//	var userId = this.get('UserId');
+		//	var user = $.grep(usersModel.users(), function (e) {
+		//		return e.Id === userId;
+		//	})[0];
+		//	return user ? {
+		//		DisplayName: user.DisplayName,
+		//		PictureUrl: AppHelper.resolveProfilePictureUrl(user.Picture)
+		//	} : {
+		//		DisplayName: 'Anonymous',
+		//		PictureUrl: AppHelper.resolveProfilePictureUrl()
+		//	};
+		//}
 	};
-	var activitiesDataSource = new kendo.data.DataSource({
+	var itemsDataSource = new kendo.data.DataSource({
 		type: 'everlive',
 		schema: {
-			model: activityModel
+			model: itemsModel
 		},
 		transport: {
-			// required by Everlive
-			typeName: 'Activities'
+			typeName: 'Item'
 		},
 		change: function (e) {
 			if (e.items && e.items.length > 0) {
-				$('#no-activities-span').hide();
+				$('#no-items-span').hide();
 			}
 			else {
-				$('#no-activities-span').show();
+			    $('#no-items-span').show();
 			}
 		},
-		sort: { field: 'CreatedAt', dir: 'desc' }
+		sort: { field: 'StartTime', dir: 'desc' }
 	});
 	return {
-		activities: activitiesDataSource
+		items: itemsDataSource
 	};
 }());
 
-// activities view model
 var mainFeedViewModel = (function () {
-	var activitySelected = function (e) {
+	var itemSelected = function (e) {
 		mobileApp.navigate('views/itemView.html?uid=' + e.data.uid);
 	};
 	var navigateHome = function () {
@@ -88,8 +84,9 @@ var mainFeedViewModel = (function () {
 		});
 	};
 	return {
-		activities: mainFeedModel.activities,
-		activitySelected: activitySelected,
+	    items: mainFeedModel.items,
+		itemSelected: itemSelected,
 		logout: logout
 	};
 }());
+

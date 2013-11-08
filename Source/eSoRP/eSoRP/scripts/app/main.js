@@ -82,31 +82,23 @@ var app = (function () {
         };
     }());
 
-
-
-  
-
-
-
-    // activity details view model
-    var activityViewModel = (function () {
-        return {
-            show: function (e) {
-                var activity = mainFeedModel.activities.getByUid(e.view.params.uid);
-                kendo.bind(e.view.element, activity, kendo.mobile.ui);
-            }
-        };
-    }());
-
-  
-
     return {
         viewModels: {
             login: loginViewModel,
             signup: singupViewModel,
-            activities: mainFeedViewModel,
-            activity: activityViewModel,
+            mainFeed: mainFeedViewModel,
+            item: itemViewModel,
             addItem: addItemViewModel
+        }
+    };
+}());
+
+
+var itemViewModel = (function () {
+    return {
+        show: function (e) {
+            var item = mainFeedModel.items.getByUid(e.view.params.uid);
+            kendo.bind(e.view.element, item, kendo.mobile.ui);
         }
     };
 }());
