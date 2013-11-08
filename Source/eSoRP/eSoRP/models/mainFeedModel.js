@@ -1,4 +1,4 @@
-﻿var mainFeedModel = (function () {
+var mainFeedModel = (function () {
 	var itemsModel = {
 		id: 'Id',
 		fields: {
@@ -24,7 +24,6 @@
 			},
 		},
 		ExpiresAtFormatted: function () {
-		    debugger;
 		    return kendo.toString(kendo.parseDate(this.get('EndTime')), 'D');
 		},
 		PictureUrl: function () {
