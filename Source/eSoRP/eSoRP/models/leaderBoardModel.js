@@ -31,10 +31,17 @@ var leaderBoardViewModel = (function () {
 		return topUsers;
 	};
 
+	var clearTopUsers = function () {
+		while (topUsersModel.length > 0) {
+			topUsersModel.pop();
+		}
+	}
+
 	var requestTopUsers = function () {
 		Everlive.$.data('Users').get().
 			then(function (data) {
 				var top = getTopUsers(data.result, data.count);
+				clearTopUsers();
 				for (var index in top) {
 					topUsersModel.push(top[index]);
 				}
