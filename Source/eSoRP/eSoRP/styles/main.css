@@ -82,8 +82,8 @@
     font-weight: normal;
 	margin: .5em 0;
     min-width: 7em;
-		background-color: #10c4b2;
-		color: #fff;
+	background-color: #10c4b2;
+	color: #fff;
 }
 #friendsApp.km-ios .welcome-scrn .btn-signup, #friendsApp.km-android .welcome-scrn .btn-signup
 {
@@ -328,7 +328,7 @@ textarea
     margin-left: 1em;
     margin-right:1em;
     color: #fff;
-    text-align: right;
+    text-align: center;
     line-height: .9;
     font-size: 1.5em;
     font-weight: normal;
@@ -659,4 +659,16 @@ background-color: #A36A57;
 	height: 48px;
 	line-height: 34px;
 	vertical-align:middle;
+}
+
+.logo.big {
+	font-size:4em;
+	border: solid .1em rgba(250,250,250, 0.75);
+	color: rgba(250,250,250, .75);
+	background-color: rgba(16, 196, 178, .75);
+	border-radius: 2em;
+	padding:.25em .3em;
+	width: 1.6em;
+	height: 1.6em;
+	margin-top: 5%;
 }
