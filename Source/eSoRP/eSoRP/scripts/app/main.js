@@ -6,6 +6,14 @@ var itemViewModel = (function (e) {
         }
     };
 }());
+var currentUserViewModel = (function (e) {
+    return {
+        show: function (e) {
+            var user = el.Users.currentUser();
+            kendo.bind(e.view.element, user, kendo.mobile.ui);
+        }
+    };
+}());
 
 var app = (function () {
     'use strict';
@@ -101,6 +109,7 @@ var app = (function () {
             mainFeed: mainFeedViewModel,
             item: itemViewModel,
             addItem: addItemViewModel,
+            currentUser: currentUserViewModel,
         }
     };
 }());
